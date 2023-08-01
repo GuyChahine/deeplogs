@@ -1,5 +1,7 @@
 data
 venv
+dist
+deeplogs.egg-info
 
 .pytest_cache
 .vscode

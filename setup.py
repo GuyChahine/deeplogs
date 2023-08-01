@@ -9,7 +9,7 @@ install_requires = [
 
 setup(
     name="deeplogs",
-    version=open("deeplogs/VERSION", "r").read(),
+    version=__version__,
     url="https://github.com/guychahine/deeplogs",
     description="Simplified Python Logging and Progress Tracking",
     author="Guy Chahine",

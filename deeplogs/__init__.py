@@ -1,5 +1,5 @@
-__version__ = open("deeplogs/VERSION", "r").read()
+from ._version import __version__
 
-from deeplogs.logger import Logger, Log
-from deeplogs.bar import Bar
-from deeplogs.reader import Reader
+from .logger import Logger, Log
+from .bar import Bar
+from .reader import Reader
