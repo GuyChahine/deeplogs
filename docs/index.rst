@@ -1,5 +1,5 @@
 .. image:: ../assets/logodeeplogs.png
-   :height: 200
+   :width: 100%
    :align: center
    :alt: DeepLogs Logo
 

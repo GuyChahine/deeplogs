@@ -1,7 +1,14 @@
 .. image:: ./assets/logodeeplogs.png
-   :height: 200
+   :width: 100%
    :align: center
    :alt: DeepLogs Logo
+
+.. image:: https://img.shields.io/pypi/v/deeplogs
+   :alt: PyPI
+.. image:: https://img.shields.io/pypi/status/deeplogs
+   :alt: PyPI - Status
+.. image:: https://img.shields.io/pypi/pyversions/deeplogs
+   :alt: PyPI - Python Version
 
 **Simplified Python Logging and Progress Tracking**
 
