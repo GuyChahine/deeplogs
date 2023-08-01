@@ -18,8 +18,10 @@ cat ./docs/deeplogs.rst >> README.rst
 echo "" >> README.rst
 cat ./docs/user_guide/installation.rst >> README.rst
 echo "" >> README.rst
-cat ./docs/user_guide/usage.rst >> README.rst
-echo "" >> README.rst
-cat ./docs/user_guide/examples.rst >> README.rst
+echo "Documentation
+*************
+
+Documentation is available online at https://guychahine.github.io/deeplogs/.
+" >> README.rst
 
 sed -i "s/\.\.\//.\//g" README.rst
