@@ -15,11 +15,17 @@ echo ".. image:: ../assets/logodeeplogs.png
    :alt: DeepLogs Logo
 " >> README.rst
 echo ".. image:: https://img.shields.io/pypi/v/deeplogs
-   :alt: PyPI" >> README.rst
+   :alt: PyPI
+   :target: https://pypi.org/project/deeplogs/
+" >> README.rst
 echo ".. image:: https://img.shields.io/pypi/status/deeplogs
-   :alt: PyPI - Status" >> README.rst
+   :alt: PyPI - Status
+   :target: https://pypi.org/project/deeplogs/
+" >> README.rst
 echo ".. image:: https://img.shields.io/pypi/pyversions/deeplogs
-   :alt: PyPI - Python Version" >> README.rst
+   :alt: PyPI - Python Version
+   :target: https://pypi.org/project/deeplogs/
+" >> README.rst
 echo "" >> README.rst
 cat ./docs/deeplogs.rst >> README.rst
 echo "" >> README.rst

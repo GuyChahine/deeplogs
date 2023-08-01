@@ -5,10 +5,16 @@
 
 .. image:: https://img.shields.io/pypi/v/deeplogs
    :alt: PyPI
+   :target: https://pypi.org/project/deeplogs/
+
 .. image:: https://img.shields.io/pypi/status/deeplogs
    :alt: PyPI - Status
+   :target: https://pypi.org/project/deeplogs/
+
 .. image:: https://img.shields.io/pypi/pyversions/deeplogs
    :alt: PyPI - Python Version
+   :target: https://pypi.org/project/deeplogs/
+
 
 **Simplified Python Logging and Progress Tracking**
 
