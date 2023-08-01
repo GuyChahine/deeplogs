@@ -34,7 +34,7 @@ The Logger here takes in three arguments:
 
 .. code-block:: python
 
-    logger = Logger(
+    logger = dpl.Logger(
         "v" + str(model_hyperparam["version"]),
         "A description of the run",
         model_hyperparam,
@@ -52,7 +52,7 @@ Implementation
     model_perf = random()
     for epoch in range(model_hyperparam["epoch"]):
         size = 1000
-        for batch in Bar(logger, f"Epoch {epoch+1}")(range(size)):
+        for batch in dpl.Bar(logger, f"Epoch {epoch+1}")(range(size)):
             logs = {}
             
             logs["acc"] = log(batch+1) * model_perf
@@ -80,7 +80,7 @@ Create the reader
 
 .. code-block:: python
 
-    reader = Reader()
+    reader = dpl.Reader()
 
 Display information about the runs.
 
