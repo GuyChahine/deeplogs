@@ -43,3 +43,10 @@ class TestBar():
         for i in range(self.TEST_SIZE):
             L.scalar(i, **{"log1": 1, "log2": 2})
             sleep(self.BAR_SLEEP)
+            
+    def test_call_generator(self):
+        generator = iter(range(self.TEST_SIZE))
+        bar_generator = [i for i in self.B(generator, self.TEST_SIZE)]
+        assert bar_generator == list(range(self.TEST_SIZE))
+        for i in self.B(generator, self.TEST_SIZE):
+            sleep(self.BAR_SLEEP)

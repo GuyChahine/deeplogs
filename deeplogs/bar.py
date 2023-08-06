@@ -51,13 +51,14 @@ class Bar():
         """
         return str(timedelta(seconds=int(seconds)))
     
-    def __call__(self, iterator: Iterable) -> Generator[int, float, str]:
+    def __call__(self, iterator: Iterable | Generator, iterator_length: int = None) -> Generator[int, float, str]:
 
         """
         Create a generator for iterating over an iterable while displaying a progress bar while logging the progress of a model.
 
         Args:
             iterator (Iterable): The iterable to be iterated over.
+            iterator_length (int): The number of elements in the iterable. Required if ``iterator`` does not have a defined length.
 
         Yields:
             Generator[int, float, str]: A generator that yields elements from the original iterator.
@@ -65,7 +66,8 @@ class Bar():
 
         if self.description: 
             self.description += ": "
-        iterator_length = len(iterator)
+        try: iterator_length = len(iterator)
+        except: assert iterator_length, "Need to specify the iterator_length"
         t0 = time()
         last_print = t0 - self.print_interval
         for i, args in enumerate(iterator):
