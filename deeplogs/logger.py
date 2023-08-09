@@ -1,6 +1,6 @@
 from typing import Any
 from pickle import dump, load
-from os import PathLike, makedirs
+from os import PathLike, makedirs, remove
 from threading import Timer
 from dataclasses import dataclass, field
 import pandas as pd
@@ -8,6 +8,8 @@ import numpy as np
 from PIL import Image
 from math import ceil
 from functools import wraps
+from shutil import copy
+from time import sleep
 
 @dataclass
 class Log():
@@ -54,7 +56,16 @@ class Log():
             Log: The loaded Log object.
         """
         
-        with open(path, "rb") as f: return cls(**load(f))
+        SLEEP_TIME: float = 0.1
+        try: 
+            with open(path, "rb") as f: L = cls(**load(f))
+        except: 
+            sleep(SLEEP_TIME)
+            return Log.load(path)
+        logs_lengths = [len(log_list) for log_list in L.logs.values()] + [len(L.timestep)]
+        if len(set(logs_lengths)) == 1: return L
+        sleep(SLEEP_TIME)
+        return Log.load(path)
         
     def scalar_to_dataframe(self) -> pd.DataFrame:
         

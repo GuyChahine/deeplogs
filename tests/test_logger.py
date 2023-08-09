@@ -109,3 +109,14 @@ class TestLogger():
         self.L.image(0., img[None].repeat(3,0)[None].repeat(4,0), "image3", "NCHW")
         assert exists(f"{self.temp_folder.name}/{self.L.L.name}/images/image3_0.0.png")
         
+    def test_scalar_inconsistancy(self):
+        # https://github.com/GuyChahine/deeplogs/issues/3#issue-1841820163
+        temp_file_path = f"{self.temp_folder.name}/name1/.log"
+        for i in range(10000):
+            self.L.scalar(i, **{f"log{nlog}": nlog for nlog in range(10)})
+            sleep(self.SAVE_INTERVAL / 2000)
+            if i == 0: self.L.flush() 
+            if i % 15 == 0:
+                logs = Log.load(temp_file_path)
+                logs_lengths = [len(value) for value in logs.logs.values()] + [len(logs.timestep)]
+                assert len(set(logs_lengths)) == 1
